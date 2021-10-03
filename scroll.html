@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>scrollpay</title>
+        <style>
+           @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200&display=swap');
+           *{
+               box-sizing:border-box;
+           }
+           body{
+               direction:ltr;
+               margin:4.5rem 0 0 0;
+               font-family: 'Yanone Kaffeesatz', sans-serif;
+               font-weight: 500;
+               background-color: #fff;
+               color:#000;
+           }
+           .header{
+                background-color:blanchedalmond;
+                position:fixed;
+                top:0;
+                left:0;
+                height:4.5rem;
+                width: 100%;
+                box-shadow: 0 2px 2px rgba(0,0,0,.1);
+                z-index: 100;
+           }
+           .header-container{
+               margin-left: 4rem;
+               margin-left: 4rem;
+               display: flex;
+               justify-content: space-between;
+               height: 100%;
+               align-items: center;
+           }
+           .header-logo a{
+               font-size: 2rem;
+               font-weight: 700;
+               color:rgb(72,72,192);
+               text-decoration: none;
+               text-transform: capitalize;
+               letter-spacing: 1rem;
+           }
+           .nav{
+               width: 100%;
+           }
+           .nav-menu{
+               float :right;
+           }
+           .nav-list{
+               list-style: none;
+               display:flex;
+           }
+           .navitem{
+               margin:0 2rem;
+           }
+           .nav-link{
+               text-decoration: none;
+               font-size: 1.4rem;
+               color:black;
+               text-transform: capitalize;
+               
+        
+           }
+           .first{
+               position: inherit;
+               transform: translateY(100%);
+               transition: all .3s linear;
+           }
+           
+           section{
+               height: 100vh;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               font-size: 5rem;
+           }
+           section:nth-of-type(odd){
+               background-color: rgb(236 236 236);
+           }
+        </style>
+    </head>
+    <body>
+            <header class="header">
+              <div class="header-container">
+                <div class="header-logo">  
+                <a hfer="#">logo</a>
+               </div>
+               <nav class="nav">
+                   <div class="nav-menu">
+                       <ul class="nav-list">
+                           <li class="navitem">
+                               <a href="#home" class="nav-link">
+                                <span class="first">home</span>
+                                
+                               </a>
+                            </li>
+                           <li class="navitem">
+                               <a href="#about" class="nav-link">
+                                <span class="first">about</span>
+                                
+                               </a>
+                            </li>
+                           <li class="navitem">
+                               <a href="#portfolio" class="nav-link">
+                                <span class="first">portfolio</span>
+                                
+                               </a>
+                            </li>
+                           <li class="navitem">
+                               <a href="#news" class="nav-link">
+                                <span class="first">news</span>
+                            
+                               </a>
+                            </li>
+                           <li class="navitem">
+                               <a href="#contact" class="nav-link">
+                                <span class="first">contact</span>
+                    
+                               </a>
+                            </li>
+                       </ul>
+                   </div>
+               </nav>
+              </div>
+             </header>    
+            <section id="home">home</section> 
+            <section id="about">about</section> 
+            <section id="portfolio">portfolia</section> 
+            <section id="news">news</section> 
+            <section id="contact">contact</section> 
+        <script>
+            const section=document.querySelectorAll('section');
+            const link = document.querySelectorAll('.nav-link');
+              window.onscroll = function(){
+                  section.foreach(sec =>{
+                      let top=window.scrolly;
+                      let offset= sec.offsetTop;
+                      let height=sec.offsetHeight;
+                      let id  =sec.getAttribute('id');
+                      if(top >= offset && top<offset+height){
+                          link.foreach(Lin =>{
+                              Lin.classList.remove('active');
+                              document.querySelector('.nav-link[href*='+id+']').classList.add('active')
+                          })
+                      }
+                  })
+              }
+        </script>
+    </body>
+</html>
