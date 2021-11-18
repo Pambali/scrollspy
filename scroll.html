@@ -137,12 +137,12 @@
                       let offset= sec.offsetTop;
                       let height=sec.offsetHeight;
                       let id  =sec.getAttribute('id');
-                      if(top >= offset && top<offset+height){
+                       if(top >= offset && top<offset+height){
                           link.foreach(Lin =>{
                               Lin.classList.remove('active');
                               document.querySelector('.nav-link[href*='+id+']').classList.add('active')
                           })
-                      }
+                       }
                   })
               }
         </script>
